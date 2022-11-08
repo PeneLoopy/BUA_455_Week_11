@@ -1,40 +1,26 @@
 ---
-title: "BUA 455 - Week 11"
-subtitle: "Expanding and Editing a Dashboard" 
+title: "Week 11"
 author: "Penelope Pooler Eisenbies"
-date: '`r Sys.Date()`'
-output:
-  xaringan::moon_reader:
-    seal: false
-    css: xaringan-themer.css
-    nature:
-      slideNumberFormat: "%current%/%total%" 
-      highlightStyle: tomorrow-night-bright
-      highlightLines: true
-      ratio: 16:9
-      countIncrementalSlides: true
-      keep_md: true
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    code_folding: hide
+    toc: yes
+    toc_depth: 4
+    toc_float: yes
 ---
 
-```{r setup, include=FALSE, echo=FALSE}
-options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(
-  fig.retina=2,
-  #out.width = "75%",
-  #out.height = "50%",
-  htmltools.preserve.raw = FALSE,      # needed for windows
-  scipen=100,                          # suppresses scientific notation
-  getSymbols.warning4.0 = FALSE,       # suppresses getSymbols warnings
-  cache = FALSE,
-  echo = TRUE,
-  hiline = TRUE,
-  message = FALSE, 
-  warning = FALSE
-)
+```{r setup, include=TRUE}
 
+# this line specifies options for default options for all R Chunks
+knitr::opts_chunk$set(echo=T, 
+                      highlight=T)
 
-# install helper package (pacman)
-# pacman loads and installs other packages, if needed
+# suppress scientific notation
+options(scipen=100,
+        getSymbols.warning4.0 = FALSE)
+
+# install helper package (pacman), if needed
 if (!require("pacman")) install.packages("pacman", repos = "http://lib.stat.cmu.edu/R/CRAN/")
 
 # install and load required packages
@@ -45,114 +31,7 @@ pacman::p_load(tidyverse, ggthemes, magrittr, lubridate, tidyquant, highcharter,
 # verify packages (comment out in finished documents)
 p_loaded()
 
-
 ```
-
-```{r xaringan-themer, include=FALSE, warning=FALSE}
-library(xaringanthemer)
-
-palette <- c(
-  SU_Orange1        = "#F76900",
-  SU_Orange2        = "#FF8E00",
-  SU_Red_Orange     = "#FF431B",
-  SU_Blue1          = "#000E54",
-  SU_Blue2          = "#203299",
-  SU_Light_Blue     = "#2B72D7",
-  SU_White          = "#FFFFFF",
-  SU_Light_Gray     = "#ADB3B8",
-  SU_Medium_Gray    = "#707780",
-  SU_Black          = "#000000", 
-  
-  steel_blue        = "#4682B4",
-  corn_flower_blue  = "#6495ED",
-  deep_sky_blue     = "#00BFFF",
-  dark_magenta      = "#8B008B",
-  medium_orchid     = "#BA55D3",
-  lime_green        = "#32CD32",
-  light_sea_green   = "#20B2AA",
-  chartreuse        = "#7FFF00",
-  orange_red        = "#FF4500",
-  white_smoke       = "#F5F5F5",
-  dark_cyan         = "#008B8B",
-  light_steel_blue  = "#B0C4DE",
-  indigo            = "#4B0082",
-  ivory             = "#FFFFF0",
-  light_slate_grey  = "#778899",
-  linen             = "#FAF0E6",
-  steel_blue        = "#4682B4",
-  blue_violet       = "#8A2BE2",
-  dodger_blue       = "#1E90FF",
-  light_blue        = "#ADD8E6",
-  azure             = "#F0FFFF",
-  lavender          = "#E6E6FA")
-
-primary_color = "#4682B4"                # steel_blue
-secondary_color = "#778899"              # light_slate_grey
-white_color = "#FFFFF0"                  # ivory
-black_color = "#000080"                  # navy
-
-style_duo_accent(
-  primary_color = primary_color,
-  secondary_color = secondary_color,
-  white_color = white_color,
-  black_color = black_color,
-  text_color = black_color,
-  header_color = primary_color,
-  background_color = white_color,
-  code_inline_background_color = "#E6E6FA", # lavender
-  link_color = "#1E90FF",                   # dodger_blue
-  code_inline_color = "#4B0082",            # indigo
-  text_bold_color = "#8B008B",              # dark_magenta
-  header_font_google = google_font("Open Sans"),
-  text_font_google = google_font("Open Sans"),
-  code_font_google = google_font("Source Code Pro"),
-  colors = palette
-)
-
-
-```
-
-```{r xaringan-panelset, echo=FALSE}
-xaringanExtra::use_panelset()
-```
-
-```{r xaringan-tile-view, echo=FALSE}
-xaringanExtra::use_tile_view()
-```
-
-```{r xaringan-fit-screen, echo=FALSE}
-xaringanExtra::use_fit_screen()
-```
-
-```{r xaringan-tachyons, echo=FALSE}
-xaringanExtra::use_tachyons()
-```
-
-```{r xaringan-animate-css, echo=FALSE}
-xaringanExtra::use_animate_css()
-```
-
-```{r xaringan-animate-all, echo=FALSE}
-#xaringanExtra::use_animate_all("slide_up")
-```
-
-background-image: url("docs_files/images/sloth_faded.png")
-background-size: cover
-
-class: bottom, right
-
-## BUA 455 - Week 11
-
-### Expanding and Editing a Dashboard
-
-<br>
-  
-  
-  #### Penelope Pooler Eisenbies
-  
-  #### `r Sys.Date()`
-  
-  [Wikipedia Sloth Page](https://en.wikipedia.org/wiki/Sloth)
 
 ---
 
@@ -188,8 +67,6 @@ class: bottom, right
 
 ### Plan for Next Week - More on Geographic Data
 
-.pull-left[
-
 - Some students have already asked about adding interactive elements to maps
 
   - Example of [Interactive Choropleth Map that is relevant today (Tue. 11/8/22)](https://www.washingtonpost.com/elections/2022/11/07/poll-close-times/)
@@ -202,19 +79,11 @@ class: bottom, right
 
   - log (Natural Log) is always a good first choice unless data contain 0s or negative values.
 
-]
 
-.pull-right[
-
-![](docs_files/images/owl.png)
-
-]
 
 ---
 
 ### Syllabus - Requested/Selected Topics 
-
-.pull-left[
 
 - The first Requested/Selected Topic is Next Thursday, 11/17
 
@@ -232,16 +101,7 @@ class: bottom, right
   
   - If appropriate, questions and answers will be included in the Week 13 Lectures 
 
-]
 
-.pull-right[
-
-![](docs_files/images/beaver.png)
-
-]
-
-
-  
 ---
 
 ### Background for HW 5 - Part 2
@@ -307,8 +167,6 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
 
 ### Skills for HW 5 - Part 2 and Project
 
-.pull-left[
-
 ### Adding linked text to Markdown Output
   
 - This same format will work in Word, Powerpoint, Html, and Pdf output files
@@ -324,19 +182,7 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
   - [Introduction to Data Science](https://rafalab.github.io/dsbook/)
 
 
-]
-
-.pull-right[
-
-![](docs_files/images/beaver.png)
-
-]
-
-
-
 ---
-
-.pull-left[
 
 ### Skills for HW 5 - Part 2 and Project
 
@@ -354,13 +200,11 @@ Syracuse University is currently developing **[Six University-wide Shared Compet
 
 NOTE: You can save and export an R data visualization, and then place that figure elsewhere in the document as .png or .jpg file separate from R code.
 
-]
+<br>
 
-.pull-right[
+Example of Image with caption
 
 ![Cover of R for Data Science](Cover_Image_R_for_DS.png)
-
-]
 
 
 ---
@@ -427,8 +271,6 @@ Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D
 
 #### Citing RStudio
 
-.pull-left[
-
 - type `RStudio.Version()` in the R console
 
 
@@ -440,13 +282,6 @@ To cite RStudio:
 
 RStudio Team (2022). RStudio: Integrated Development Environment for R. RStudio, PBC, Boston, MA URL http://www.rstudio.com/.
 
-]
-
-.pull-right[
-
-![](docs_files/images/beaver.png)
-
-]
 
 ---
 
@@ -507,7 +342,6 @@ pct_of_prev_more <- pct_of_prev - 100
   
 ###  R Inline Code Example
 
-.pull-left[
 
 - In a polished document, the previous chunk could be hidden, by using the `echo=F` option in the chunk header.
 
@@ -521,15 +355,6 @@ So far this year, the domestic total movie gross is `r yr_to_date_gross` billion
 
 This is already `r pct_of_prev_more`% more than last year's total domestic movie gross.
 
-
-]
-
-.pull-right[
-
-![](docs_files/images/owl.png)
-
-]
-  
 
 ---
 
@@ -564,15 +389,8 @@ Here is the data link: `https://www.boxofficemojo.com/year/?ref_=bo_nb_hm_second
 
 ---
 
-background-image: url("docs_files/images/tired_panda_faded.png")
-background-size: cover
-
-.pull-left[
-  
 ### **Key Points from Week 11**
   
-.bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph2[
-    
 - **Introduction of HW 5 - Part 2**
 
   - Due Friday, 11/18/22
@@ -592,16 +410,6 @@ background-size: cover
   - Ideal for updating data information efficiently
   - In-class exercise to practice
     
-  ]
-  
-]
-
-.pull-right[
-  
-.bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph3[
+<br>
 
 **You may submit an 'Engagement Question or Comment' about Week 11 lecture until Tuesday, 11/8, at midnight on Blackboard.**
-
-]
-  
-]
