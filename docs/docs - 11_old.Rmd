@@ -1,5 +1,5 @@
 ---
-title: "BUA 455 - Week 13 - Part 1"
+title: "BUA 455 - Week 11"
 subtitle: "Expanding and Editing a Dashboard" 
 author: "Penelope Pooler Eisenbies"
 date: '`r Sys.Date()`'
@@ -141,7 +141,7 @@ background-size: cover
 
 class: bottom, right
 
-## BUA 455 - Week 13 - Part 1
+## BUA 455 - Week 11
 
 ### Expanding and Editing a Dashboard
 
@@ -158,7 +158,11 @@ class: bottom, right
 
 ### Announcements
   
-- HW 5 - Part 2 is now posted and will be due Wednesday 12/6
+- Proposals will be graded this weekend
+
+- Quizzes will be graded next week
+
+- HW 5 - Part 2 is now posted and will be due Friday 11/18
 
 - This is the last HW Assignment and requires very little coding (Code is provided)
 
@@ -168,21 +172,35 @@ class: bottom, right
 
 <br>
   
+### Plan for This Week
+  
+- **Quiz 2 is on Thursday, 11/10.**
+
+  - Practice Questions and Demo Videos are posted.
+  
+  - There will be time for questions today
+
+<br>
+
 - Today I will introduce HW 5 - Part 2
 
 ---
 
-### Plan for Thursday and Next Week
+### Plan for Next Week - More on Geographic Data
 
 .pull-left[
 
-- Format and requirements for the project memos
+- Some students have already asked about adding interactive elements to maps
 
-- Project Presentation Information
+  - Example of [Interactive Choropleth Map that is relevant today (Tue. 11/8/22)](https://www.washingtonpost.com/elections/2022/11/07/poll-close-times/)
 
-- Other ways to use R/RStudio and Collaborate
+  - Link to [R code that can be adapted to create interactive maps](https://plotly.com/ggplot2/geom_polygon/)
+  
+- I will update last year's lectures to include these interactive elements and explain how.
 
+- Others have asked about other types of data that would need transformations
 
+  - log (Natural Log) is always a good first choice unless data contain 0s or negative values.
 
 ]
 
@@ -194,16 +212,25 @@ class: bottom, right
 
 ---
 
-###  Requested/Selected Topics 
+### Syllabus - Requested/Selected Topics 
 
 .pull-left[
 
-- This week and next week are planned as short lecture days
+- The first Requested/Selected Topic is Next Thursday, 11/17
 
-  - If I receive questions that are useful to all I will incorporate topics
+  - I have received questions to augment the current geo-data lectures 
   
-  - Goal is to provide information to all students while still keeping time open for group work.
+  - If you have additional geo-data questions for your project, let me know.
 
+  - I will try to incorporate your questions and my answers into next week's lectures
+  
+- The second Requested/Selected Topic is during week 13.
+
+  - If your group has a project idea that you need help with, email me questions and data.
+
+  - I will, of course, answer your questions.
+  
+  - If appropriate, questions and answers will be included in the Week 13 Lectures 
 
 ]
 
@@ -219,7 +246,7 @@ class: bottom, right
 
 ### Background for HW 5 - Part 2
 
-Syracuse University is currently launching**[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
+Syracuse University is currently developing **[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
 
 <br>
 
@@ -454,9 +481,9 @@ In a dashboard or report, this chunk could be hidden by including `echo = F` in 
 ```{r}
 
 # import and manage data to keep top movies from each year
-bom_yr <- read_csv("bom_yearly_top_gross_2023_11_28.csv", show_col_types = F, skip=12) |>
+bom_yr <- read_csv("bom_yearly_top_gross_2022_11_07.csv", show_col_types = F, skip=11) |>
   filter(!is.na(Releases)) |>                              # remove rows with NAs
-  slice(1:15) |>                                           # keep first 15 rows
+  slice(1:13) |>                                           # keep first 13 rows
   rename("yr"="Year", "tot_gross" = "Total Gross", "num1" = "#1 Release") |>
   select(yr, tot_gross, num1) |>
   mutate(yr = as.integer(yr),
@@ -511,11 +538,11 @@ This is already `r pct_of_prev_more`% more than last year's total domestic movie
  
 **`1.`** In the previous chunk: 
 
-   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 11/28/2023, `today`.
+   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 11/7/2022, `today - 1`.
    
    - Calculate average of total gross for the ten years before the pandemic (2010 - 2019) and save this value as an object, `tenyr_pp_avg`.
    
-   - Calculate the ratio of the current gross for 2023 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
+   - Calculate the ratio of the current gross for 2022 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
 
 **`2.`** Add more information to the text above, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
 
@@ -542,13 +569,13 @@ background-size: cover
 
 .pull-left[
   
-### **Key Points from Today**
+### **Key Points from Week 11**
   
 .bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph2[
     
 - **Introduction of HW 5 - Part 2**
 
-  - Due Wednesday, 12/6/23
+  - Due Friday, 11/18/22
   - Discussion of Information Literacy 
   - Explanation of Assignment Tasks
   - Review of adding linked text and images
@@ -573,7 +600,7 @@ background-size: cover
   
 .bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph3[
 
-You may submit an 'Engagement Question' about each lecture until midnight on the day of the lecture. **A minimum of four submissions are required during the semester.**
+**You may submit an 'Engagement Question or Comment' about Week 11 lecture until Tuesday, 11/8, at midnight on Blackboard.**
 
 ]
   

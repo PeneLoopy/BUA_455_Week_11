@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>BUA 455 - Week 11</title>
+    <title>BUA 455 - Week 13 - Part 1</title>
     <meta charset="utf-8" />
     <meta name="author" content="Penelope Pooler Eisenbies" />
-    <meta name="date" content="2022-11-08" />
+    <meta name="date" content="2023-11-28" />
     <script src="docs_files/header-attrs/header-attrs.js"></script>
     <link href="docs_files/panelset/panelset.css" rel="stylesheet" />
     <script src="docs_files/panelset/panelset.js"></script>
@@ -40,7 +40,7 @@ background-size: cover
 
 class: bottom, right
 
-## BUA 455 - Week 11
+## BUA 455 - Week 13 - Part 1
 
 ### Expanding and Editing a Dashboard
 
@@ -49,7 +49,7 @@ class: bottom, right
   
   #### Penelope Pooler Eisenbies
   
-  #### 2022-11-08
+  #### 2023-11-28
   
   [Wikipedia Sloth Page](https://en.wikipedia.org/wiki/Sloth)
 
@@ -57,11 +57,7 @@ class: bottom, right
 
 ### Announcements
   
-- Proposals will be graded this weekend
-
-- Quizzes will be graded next week
-
-- HW 5 - Part 2 is now posted and will be due Friday 11/18
+- HW 5 - Part 2 is now posted and will be due Wednesday 12/6
 
 - This is the last HW Assignment and requires very little coding (Code is provided)
 
@@ -71,35 +67,21 @@ class: bottom, right
 
 &lt;br&gt;
   
-### Plan for This Week
-  
-- **Quiz 2 is on Thursday, 11/10.**
-
-  - Practice Questions and Demo Videos are posted.
-  
-  - There will be time for questions today
-
-&lt;br&gt;
-
 - Today I will introduce HW 5 - Part 2
 
 ---
 
-### Plan for Next Week - More on Geographic Data
+### Plan for Thursday and Next Week
 
 .pull-left[
 
-- Some students have already asked about adding interactive elements to maps
+- Format and requirements for the project memos
 
-  - Example of [Interactive Choropleth Map that is relevant today (Tue. 11/8/22)](https://www.washingtonpost.com/elections/2022/11/07/poll-close-times/)
+- Project Presentation Information
 
-  - Link to [R code that can be adapted to create interactive maps](https://plotly.com/ggplot2/geom_polygon/)
-  
-- I will update last year's lectures to include these interactive elements and explain how.
+- Other ways to use R/RStudio and Collaborate
 
-- Others have asked about other types of data that would need transformations
 
-  - log (Natural Log) is always a good first choice unless data contain 0s or negative values.
 
 ]
 
@@ -111,25 +93,16 @@ class: bottom, right
 
 ---
 
-### Syllabus - Requested/Selected Topics 
+###  Requested/Selected Topics 
 
 .pull-left[
 
-- The first Requested/Selected Topic is Next Thursday, 11/17
+- This week and next week are planned as short lecture days
 
-  - I have received questions to augment the current geo-data lectures 
+  - If I receive questions that are useful to all I will incorporate topics
   
-  - If you have additional geo-data questions for your project, let me know.
+  - Goal is to provide information to all students while still keeping time open for group work.
 
-  - I will try to incorporate your questions and my answers into next week's lectures
-  
-- The second Requested/Selected Topic is during week 13.
-
-  - If your group has a project idea that you need help with, email me questions and data.
-
-  - I will, of course, answer your questions.
-  
-  - If appropriate, questions and answers will be included in the Week 13 Lectures 
 
 ]
 
@@ -145,7 +118,7 @@ class: bottom, right
 
 ### Background for HW 5 - Part 2
 
-Syracuse University is currently developing **[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
+Syracuse University is currently launching**[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
 
 &lt;br&gt;
 
@@ -380,9 +353,9 @@ In a dashboard or report, this chunk could be hidden by including `echo = F` in 
 
 ```r
 # import and manage data to keep top movies from each year
-bom_yr &lt;- read_csv("bom_yearly_top_gross_2022_11_07.csv", show_col_types = F, skip=11) |&gt;
+bom_yr &lt;- read_csv("bom_yearly_top_gross_2023_11_28.csv", show_col_types = F, skip=12) |&gt;
   filter(!is.na(Releases)) |&gt;                              # remove rows with NAs
-  slice(1:13) |&gt;                                           # keep first 13 rows
+  slice(1:15) |&gt;                                           # keep first 15 rows
   rename("yr"="Year", "tot_gross" = "Total Gross", "num1" = "#1 Release") |&gt;
   select(yr, tot_gross, num1) |&gt;
   mutate(yr = as.integer(yr),
@@ -413,11 +386,11 @@ pct_of_prev_more &lt;- pct_of_prev - 100
 
 &lt;br&gt;
 
-As of Tuesday, November 08, 2022, the top grossing film of this year is *Top Gun: Maverick*.  
+As of Tuesday, November 28, 2023, the top grossing film of this year is *Barbie*.  
 
-So far this year, the domestic total movie gross is 6.14 billion dollars.  
+So far this year, the domestic total movie gross is 8.13 billion dollars.  
 
-This is already 37% more than last year's total domestic movie gross.
+This is already 10% more than last year's total domestic movie gross.
 
 
 ]
@@ -436,20 +409,20 @@ This is already 37% more than last year's total domestic movie gross.
  
 **`1.`** In the previous chunk: 
 
-   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 11/7/2022, `today - 1`.
+   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 11/28/2023, `today`.
    
    - Calculate average of total gross for the ten years before the pandemic (2010 - 2019) and save this value as an object, `tenyr_pp_avg`.
    
-   - Calculate the ratio of the current gross for 2022 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
+   - Calculate the ratio of the current gross for 2023 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
 
 **`2.`** Add more information to the text above, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
 
 **`3.`** Knit your class notes (.Rmd) so that you have the final output as an html file and then save (print) it as a pdf and submit it.
 
   
-As of Tuesday, November 08, 2022, the top grossing film of this year is *Top Gun: Maverick*.     
-So far this year, the domestic total movie gross is 6.14 billion dollars.     
-This total is already 37% more than last year's total domestic movie gross.   
+As of Tuesday, November 28, 2023, the top grossing film of this year is *Barbie*.     
+So far this year, the domestic total movie gross is 8.13 billion dollars.     
+This total is already 10% more than last year's total domestic movie gross.   
 It is `_____`% of the pre-pandemic ten-year average of domestic annual gross.     
 These data were last updated on `_____` and can be [accessed at this link]().    
 
@@ -467,13 +440,13 @@ background-size: cover
 
 .pull-left[
   
-### **Key Points from Week 11**
+### **Key Points from Today**
   
 .bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph2[
     
 - **Introduction of HW 5 - Part 2**
 
-  - Due Friday, 11/18/22
+  - Due Wednesday, 12/6/23
   - Discussion of Information Literacy 
   - Explanation of Assignment Tasks
   - Review of adding linked text and images
@@ -498,7 +471,7 @@ background-size: cover
   
 .bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph3[
 
-**You may submit an 'Engagement Question or Comment' about Week 11 lecture until Tuesday, 11/8, at midnight on Blackboard.**
+You may submit an 'Engagement Question' about each lecture until midnight on the day of the lecture. **A minimum of four submissions are required during the semester.**
 
 ]
   
