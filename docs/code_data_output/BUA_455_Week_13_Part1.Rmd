@@ -336,7 +336,6 @@ today_fmt <- stamp("Saturday, January 1, 1999", quiet = T)(today)  # formats dat
 
 yr_to_date_gross <- round(bom_yr$tot_gross[1]/1000000000,2)        # formats & saves 1st gross
 pct_of_prev <- round(bom_yr$tot_gross[1]/bom_yr$tot_gross[2]*100)  # creates formatted ratio 
-pct_of_prev_more <- pct_of_prev - 100
 
 # tenyr_pp_avg <- 
 # pct_of_tenyr_pp_avg <- 
