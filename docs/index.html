@@ -4,7 +4,7 @@
     <title>BUA 455 - Week 13 - Part 1</title>
     <meta charset="utf-8" />
     <meta name="author" content="Penelope Pooler Eisenbies" />
-    <meta name="date" content="2023-11-28" />
+    <meta name="date" content="2024-04-16" />
     <script src="docs_files/header-attrs/header-attrs.js"></script>
     <link href="docs_files/panelset/panelset.css" rel="stylesheet" />
     <script src="docs_files/panelset/panelset.js"></script>
@@ -49,7 +49,7 @@ class: bottom, right
   
   #### Penelope Pooler Eisenbies
   
-  #### 2023-11-28
+  #### 2024-04-16
   
   [Wikipedia Sloth Page](https://en.wikipedia.org/wiki/Sloth)
 
@@ -57,9 +57,10 @@ class: bottom, right
 
 ### Announcements
   
-- HW 5 - Part 2 is now posted and will be due Wednesday 12/6
+- HW 5 - Part 2 isdue Wednesday 4/17
 
-- This is the last HW Assignment and requires very little coding (Code is provided)
+
+- This is the last HW Assignment and requires very little coding (Code is provided).
 
 - You are asked to place and format chunks correctly to expand and update your dashboard as instructed.
 
@@ -67,7 +68,7 @@ class: bottom, right
 
 &lt;br&gt;
   
-- Today I will introduce HW 5 - Part 2
+- HW 5 - Part 2 was interoduced last week, but I provide additional review information today.
 
 ---
 
@@ -81,7 +82,7 @@ class: bottom, right
 
 - Other ways to use R/RStudio and Collaborate
 
-
+- Tuesday (4/23) will be mostly an in-class work day
 
 ]
 
@@ -118,7 +119,7 @@ class: bottom, right
 
 ### Background for HW 5 - Part 2
 
-Syracuse University is currently launching**[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
+Syracuse University is currently launching **[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
 
 &lt;br&gt;
 
@@ -157,7 +158,7 @@ Syracuse University is currently launching**[Six University-wide Shared Competen
 
 ---
 
-### Intro of HW 5 - Part 2
+### HW 5 - Part 2
   
 - This assignment expands the dashboard created in HW 5 - Part 1.
 
@@ -234,6 +235,33 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 ]
 
+---
+
+### Skills for HW 5 - Part 2 and Project
+
+.pull-left[
+
+#### Adding an image in an R Chunk
+
+- Another way to add an image is to use commands within an R Chunk
+
+- This option may allow you to use some of the chunk options to modify sizing
+
+- The image below is centered using the `fig.align` option and resized using the `fig.dim` option.
+
+]
+
+.pull-right[
+
+
+```r
+knitr::include_graphics("Cover_Image_R_for_DS.png")
+```
+
+&lt;img src="Cover_Image_R_for_DS.png" width="265" style="display: block; margin: auto;" /&gt;
+
+]
+
 
 ---
 
@@ -251,6 +279,8 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 - Here is link with suggestions on [how to cite websites](https://www.citationmachine.net/apa/cite-a-website)
 
+- Using `.qmd` templates for memos will make citing R, RStudio and R packages very straightforward. 
+
 #### Citing R
 
 - Type `citation()` in the R Console to see the full citation which can be copy and pasted:
@@ -258,12 +288,11 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 ` citation() `
 
-&lt;br&gt;
-
 - To cite R:
 
-R Core Team (2022). R: A language and environment for statistical computing. R Foundation for
-Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+R Core Team (2024). _R: A Language and Environment for Statistical Computing_. R
+  Foundation for Statistical Computing, Vienna, Austria.
+  &lt;https://www.R-project.org/&gt;.
       
 ---
   
@@ -282,16 +311,18 @@ Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
 
 `tidyverse` suite include: 
 
-`forcats`  `stringr`  `dplyr`   `purrr`   `readr`   
+`lubridate`  `forcats`  `stringr`  `dplyr`  `purrr`    
  
-`tidyr`   `tibble`  `ggplot2`  `tidyverse`  
+`readr`   `tidyr`  `tibble`  `ggplot2`  `tidyverse` 
 
 &lt;br&gt;
 
 To cite `tidyverse`:
 
-Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L,
-Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, SpinuV, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” *Journal of Open Source Software*, *4*(43), 1686. doi:10.21105/joss.01686
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes
+  A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J,
+  Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H
+  (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686 &lt;https://doi.org/10.21105/joss.01686&gt;.
 
 ---
 
@@ -310,7 +341,8 @@ Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D
 
 To cite RStudio:
 
-RStudio Team (2022). RStudio: Integrated Development Environment for R. RStudio, PBC, Boston, MA URL http://www.rstudio.com/.
+Posit team (2024). RStudio: Integrated Development Environment for R. Posit
+  Software, PBC, Boston, MA. URL http://www.posit.co/.
 
 ]
 
@@ -353,7 +385,7 @@ In a dashboard or report, this chunk could be hidden by including `echo = F` in 
 
 ```r
 # import and manage data to keep top movies from each year
-bom_yr &lt;- read_csv("bom_yearly_top_gross_2023_11_28.csv", show_col_types = F, skip=12) |&gt;
+bom_yr &lt;- read_csv("bom_yearly_top_gross_2024_04_16.csv", show_col_types = F, skip=12) |&gt;
   filter(!is.na(Releases)) |&gt;                              # remove rows with NAs
   slice(1:15) |&gt;                                           # keep first 15 rows
   rename("yr"="Year", "tot_gross" = "Total Gross", "num1" = "#1 Release") |&gt;
@@ -369,9 +401,10 @@ today_fmt &lt;- stamp("Saturday, January 1, 1999", quiet = T)(today)  # formats 
 
 yr_to_date_gross &lt;- round(bom_yr$tot_gross[1]/1000000000,2)        # formats &amp; saves 1st gross
 pct_of_prev &lt;- round(bom_yr$tot_gross[1]/bom_yr$tot_gross[2]*100)  # creates formatted ratio 
-pct_of_prev_more &lt;- pct_of_prev - 100
-# tenyr_pp_avg &lt;- 
-# pct_of_tenyr_pp_avg &lt;- 
+#pct_of_prev_more &lt;- pct_of_prev - 100
+
+tenyr_pp_avg &lt;- (mean(bom_yr$tot_gross[6:15])/1000000000) |&gt; round(2)
+pct_of_tenyr_pp_avg &lt;- ((yr_to_date_gross/tenyr_pp_avg)*100) |&gt; round()
 ```
 
 ---
@@ -386,11 +419,11 @@ pct_of_prev_more &lt;- pct_of_prev - 100
 
 &lt;br&gt;
 
-As of Tuesday, November 28, 2023, the top grossing film of this year is *Barbie*.  
+As of Tuesday, April 16, 2024, the top grossing film of this year is *Dune: Part Two*.  
 
-So far this year, the domestic total movie gross is 8.13 billion dollars.  
+So far this year, the domestic total movie gross is 1.85 billion dollars.  
 
-This is already 10% more than last year's total domestic movie gross.
+This total is 21% of last year's total domestic movie gross.
 
 
 ]
@@ -409,20 +442,20 @@ This is already 10% more than last year's total domestic movie gross.
  
 **`1.`** In the previous chunk: 
 
-   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 11/28/2023, `today`.
+   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 4/16/2024, `today`.
    
    - Calculate average of total gross for the ten years before the pandemic (2010 - 2019) and save this value as an object, `tenyr_pp_avg`.
    
-   - Calculate the ratio of the current gross for 2023 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
+   - Calculate the ratio of the current gross for 2024 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
 
 **`2.`** Add more information to the text above, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
 
 **`3.`** Knit your class notes (.Rmd) so that you have the final output as an html file and then save (print) it as a pdf and submit it.
 
   
-As of Tuesday, November 28, 2023, the top grossing film of this year is *Barbie*.     
-So far this year, the domestic total movie gross is 8.13 billion dollars.     
-This total is already 10% more than last year's total domestic movie gross.   
+As of Tuesday, April 16, 2024, the top grossing film of this year is *Dune: Part Two*.     
+So far this year, the domestic total movie gross is 1.85 billion dollars.     
+This total is 21% of last year's total domestic movie gross.
 It is `_____`% of the pre-pandemic ten-year average of domestic annual gross.     
 These data were last updated on `_____` and can be [accessed at this link]().    
 
@@ -444,9 +477,9 @@ background-size: cover
   
 .bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph2[
     
-- **Introduction of HW 5 - Part 2**
+- **More Details about HW 5 - Part 2**
 
-  - Due Wednesday, 12/6/23
+  - Due Wednesday, 4/17/24
   - Discussion of Information Literacy 
   - Explanation of Assignment Tasks
   - Review of adding linked text and images

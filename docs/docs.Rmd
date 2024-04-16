@@ -158,9 +158,10 @@ class: bottom, right
 
 ### Announcements
   
-- HW 5 - Part 2 is now posted and will be due Wednesday 12/6
+- HW 5 - Part 2 isdue Wednesday 4/17
 
-- This is the last HW Assignment and requires very little coding (Code is provided)
+
+- This is the last HW Assignment and requires very little coding (Code is provided).
 
 - You are asked to place and format chunks correctly to expand and update your dashboard as instructed.
 
@@ -168,7 +169,7 @@ class: bottom, right
 
 <br>
   
-- Today I will introduce HW 5 - Part 2
+- HW 5 - Part 2 was interoduced last week, but I provide additional review information today.
 
 ---
 
@@ -182,7 +183,7 @@ class: bottom, right
 
 - Other ways to use R/RStudio and Collaborate
 
-
+- Tuesday (4/23) will be mostly an in-class work day
 
 ]
 
@@ -219,7 +220,7 @@ class: bottom, right
 
 ### Background for HW 5 - Part 2
 
-Syracuse University is currently launching**[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
+Syracuse University is currently launching **[Six University-wide Shared Competencies](https://effectiveness.syr.edu/shared-competencies/)**
 
 <br>
 
@@ -258,7 +259,7 @@ Syracuse University is currently launching**[Six University-wide Shared Competen
 
 ---
 
-### Intro of HW 5 - Part 2
+### HW 5 - Part 2
   
 - This assignment expands the dashboard created in HW 5 - Part 1.
 
@@ -335,6 +336,32 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 ]
 
+---
+
+### Skills for HW 5 - Part 2 and Project
+
+.pull-left[
+
+#### Adding an image in an R Chunk
+
+- Another way to add an image is to use commands within an R Chunk
+
+- This option may allow you to use some of the chunk options to modify sizing
+
+- The image below is centered using the `fig.align` option and resized using the `fig.dim` option.
+
+]
+
+.pull-right[
+
+```{r fig.align='center', fig.dim=c(4,6)}
+
+knitr::include_graphics("Cover_Image_R_for_DS.png")
+
+```
+
+]
+
 
 ---
 
@@ -352,6 +379,8 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 - Here is link with suggestions on [how to cite websites](https://www.citationmachine.net/apa/cite-a-website)
 
+- Using `.qmd` templates for memos will make citing R, RStudio and R packages very straightforward. 
+
 #### Citing R
 
 - Type `citation()` in the R Console to see the full citation which can be copy and pasted:
@@ -359,12 +388,11 @@ NOTE: You can save and export an R data visualization, and then place that figur
 
 ` citation() `
 
-<br>
-
 - To cite R:
 
-R Core Team (2022). R: A language and environment for statistical computing. R Foundation for
-Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+R Core Team (2024). _R: A Language and Environment for Statistical Computing_. R
+  Foundation for Statistical Computing, Vienna, Austria.
+  <https://www.R-project.org/>.
       
 ---
   
@@ -383,16 +411,18 @@ Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
 
 `tidyverse` suite include: 
 
-`forcats`  `stringr`  `dplyr`   `purrr`   `readr`   
+`lubridate`  `forcats`  `stringr`  `dplyr`  `purrr`    
  
-`tidyr`   `tibble`  `ggplot2`  `tidyverse`  
+`readr`   `tidyr`  `tibble`  `ggplot2`  `tidyverse` 
 
 <br>
 
 To cite `tidyverse`:
 
-Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L,
-Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, SpinuV, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” *Journal of Open Source Software*, *4*(43), 1686. doi:10.21105/joss.01686
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes
+  A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J,
+  Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H
+  (2019). “Welcome to the tidyverse.” _Journal of Open Source Software_, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
 
 ---
 
@@ -411,7 +441,8 @@ Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D
 
 To cite RStudio:
 
-RStudio Team (2022). RStudio: Integrated Development Environment for R. RStudio, PBC, Boston, MA URL http://www.rstudio.com/.
+Posit team (2024). RStudio: Integrated Development Environment for R. Posit
+  Software, PBC, Boston, MA. URL http://www.posit.co/.
 
 ]
 
@@ -454,7 +485,7 @@ In a dashboard or report, this chunk could be hidden by including `echo = F` in 
 ```{r}
 
 # import and manage data to keep top movies from each year
-bom_yr <- read_csv("bom_yearly_top_gross_2023_11_28.csv", show_col_types = F, skip=12) |>
+bom_yr <- read_csv("bom_yearly_top_gross_2024_04_16.csv", show_col_types = F, skip=12) |>
   filter(!is.na(Releases)) |>                              # remove rows with NAs
   slice(1:15) |>                                           # keep first 15 rows
   rename("yr"="Year", "tot_gross" = "Total Gross", "num1" = "#1 Release") |>
@@ -470,9 +501,10 @@ today_fmt <- stamp("Saturday, January 1, 1999", quiet = T)(today)  # formats dat
 
 yr_to_date_gross <- round(bom_yr$tot_gross[1]/1000000000,2)        # formats & saves 1st gross
 pct_of_prev <- round(bom_yr$tot_gross[1]/bom_yr$tot_gross[2]*100)  # creates formatted ratio 
-pct_of_prev_more <- pct_of_prev - 100
-# tenyr_pp_avg <- 
-# pct_of_tenyr_pp_avg <- 
+#pct_of_prev_more <- pct_of_prev - 100
+
+tenyr_pp_avg <- (mean(bom_yr$tot_gross[6:15])/1000000000) |> round(2)
+pct_of_tenyr_pp_avg <- ((yr_to_date_gross/tenyr_pp_avg)*100) |> round()
 
 ```
 
@@ -492,7 +524,7 @@ As of `r today_fmt`, the top grossing film of this year is *`r bom_yr$num1[1]`*.
 
 So far this year, the domestic total movie gross is `r yr_to_date_gross` billion dollars.  
 
-This is already `r pct_of_prev_more`% more than last year's total domestic movie gross.
+This total is `r pct_of_prev`% of last year's total domestic movie gross.
 
 
 ]
@@ -511,11 +543,11 @@ This is already `r pct_of_prev_more`% more than last year's total domestic movie
  
 **`1.`** In the previous chunk: 
 
-   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 11/28/2023, `today`.
+   - Create an additional formatted date value, `day_updated_fmt` to indicate when data were updated. Data were updated on 4/16/2024, `today`.
    
    - Calculate average of total gross for the ten years before the pandemic (2010 - 2019) and save this value as an object, `tenyr_pp_avg`.
    
-   - Calculate the ratio of the current gross for 2023 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
+   - Calculate the ratio of the current gross for 2024 divided by the ten year average, format ratio as was done for `pct_of_prev`, and save this ratio as `pct_of_tenyr_pp_age`
 
 **`2.`** Add more information to the text above, including two additional 'micro-chunks' of inline R code.  The full text section to be completed is shown below.
 
@@ -524,7 +556,7 @@ This is already `r pct_of_prev_more`% more than last year's total domestic movie
   
 As of `r today_fmt`, the top grossing film of this year is *`r bom_yr$num1[1]`*.     
 So far this year, the domestic total movie gross is `r yr_to_date_gross` billion dollars.     
-This total is already `r pct_of_prev_more`% more than last year's total domestic movie gross.   
+This total is `r pct_of_prev`% of last year's total domestic movie gross.
 It is `_____`% of the pre-pandemic ten-year average of domestic annual gross.     
 These data were last updated on `_____` and can be [accessed at this link]().    
 
@@ -546,9 +578,9 @@ background-size: cover
   
 .bg-azure.b--dark_cyan.ba.bw2.br3.shadow-5.ph2[
     
-- **Introduction of HW 5 - Part 2**
+- **More Details about HW 5 - Part 2**
 
-  - Due Wednesday, 12/6/23
+  - Due Wednesday, 4/17/24
   - Discussion of Information Literacy 
   - Explanation of Assignment Tasks
   - Review of adding linked text and images
